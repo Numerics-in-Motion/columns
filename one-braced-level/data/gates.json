@@ -1,0 +1,511 @@
+{
+ "claim": "In this principal-plane model of a 12 m square steel tube, the bare one-wave reference first yielded at 229 kN; with one mid-height lateral brace, the less favourable of two braced crookedness shapes first yielded at 619 kN. Every registered crookedness-size, shape, and brace-height case remained above twice its corresponding one-wave bare reference.",
+ "on_screen": {
+  "setup": "12 m STEEL COLUMN, PINNED AT BOTH ENDS — PRINCIPAL-PLANE MODEL",
+  "measure": "THE NUMBER: THE LOAD WHEN THE STEEL FIRST YIELDS",
+  "brace": "ONE MID-HEIGHT BRACE IN THE SHOWN PLANE: A 3 m STEEL STRUT",
+  "why": "A MID-HEIGHT RESTRAINT SPLITS THE ELASTIC BUCKLING WAVE INTO TWO 6 m HALVES",
+  "result": "MORE THAN DOUBLE ACROSS EVERY CROOKEDNESS SIZE, SHAPE, AND BRACE HEIGHT TRIED",
+  "braced_note": "LESS FAVOURABLE OF TWO BRACED CROOKEDNESS SHAPES",
+  "why_note": "SCHEMATIC ELASTIC BUCKLING SHAPES — AMPLITUDE NOT TO SCALE",
+  "limits": [
+   "FIRST YIELD ONLY: POST-YIELD RESPONSE NOT COMPUTED",
+   "PLANAR, STRAIGHT PUSH: OUT-OF-PLANE BEHAVIOUR NOT COMPUTED",
+   "NO WALL BUCKLING OR RESIDUAL STRESS",
+   "STRUT CONNECTION ASSUMED NO-SLIP; NEIGHBOUR RIGID"
+  ],
+  "heads": {
+   "brace": "at mid-height, in the shown plane",
+   "braced": "same section and length; less favourable braced shape",
+   "braced_short": "less favourable braced shape",
+   "why": "elastic buckling shapes",
+   "result": "bare reference / less favourable braced shape"
+  }
+ },
+ "silent": {
+  "result": "more than double across all registered size/shape/height cases",
+  "limits": [
+   "first yield only",
+   "principal-plane model — out-of-plane behaviour not computed",
+   "strut connection no-slip; neighbour rigid"
+  ]
+ },
+ "narration": {
+  "a1": "A twelve metre steel column, pinned at both ends.",
+  "a2": "Push down until the steel first yields.",
+  "b1": "Two hundred and twenty-nine kilonewtons.",
+  "c1": "Now brace the comparison column at mid-height with one steel strut.",
+  "e1": "Six hundred and nineteen kilonewtons.",
+  "d1": "The restraint splits the elastic buckling wave into two six metre halves.",
+  "e2": "More than double throughout the registered sweep.",
+  "z1": "That is first yield. This model stops there.",
+  "z2": "One brace, in the modelled plane."
+ },
+ "identity": [
+  "WORKER DRAWN TO SCALE, 1.70 m - AN ILLUSTRATION"
+ ],
+ "gates": [
+  {
+   "name": "identity",
+   "by_mesh": {
+    "20": {
+     "bare_over_euler": 1.000000844470443,
+     "ideal_over_4euler": 1.000013463153841,
+     "real_over_4euler": 1.0000134596057095
+    },
+    "40": {
+     "bare_over_euler": 1.0000000528321404,
+     "ideal_over_4euler": 1.000000848662235,
+     "real_over_4euler": 1.0000008444735877
+    },
+    "80": {
+     "bare_over_euler": 1.000000003224573,
+     "ideal_over_4euler": 1.0000000583143258,
+     "real_over_4euler": 1.0000000528235968
+    }
+   },
+   "worst": 1.3463153841097864e-05,
+   "passes": true
+  },
+  {
+   "name": "yield",
+   "cases": 199,
+   "eligible": 190,
+   "reached": 190,
+   "controls": 9,
+   "control_modes": [
+    "instability"
+   ],
+   "not_yield_other": [],
+   "passes": true
+  },
+  {
+   "name": "bracket",
+   "cases": 190,
+   "bad": [],
+   "passes": true
+  },
+  {
+   "name": "equilibrium",
+   "rungs": 380,
+   "worst": {
+    "free_residual_n": 1.9073486328125e-06,
+    "brace_closure_n": 1.9073486328125e-06,
+    "sideways_closure_n": 9.991228580474854e-06,
+    "vertical_closure_n": 3.2444950193166733e-07
+   },
+   "worst_over_bound": 4.09120433315649e-07,
+   "bad": [],
+   "passes": true
+  },
+  {
+   "name": "spring",
+   "cases": 9,
+   "worst_diagonal_error": 1.2367963790893555e-06,
+   "worst_energy_error": 1.2814998626708984e-06,
+   "passes": true
+  },
+  {
+   "name": "monotone",
+   "k": [
+    0.0,
+    81942.08592262465,
+    163884.1718452493,
+    327768.3436904986,
+    655536.6873809972,
+    1311073.3747619945,
+    63333333.33333335,
+    126666666.6666667,
+    253333333.3333334,
+    126666666666.6667
+   ],
+   "over_euler": [
+    1.0000000528321404,
+    1.798972418584863,
+    2.5706520103863246,
+    4.000001125958429,
+    4.000003377893168,
+    4.000003377894106,
+    4.0000033778908834,
+    4.000003377894351,
+    4.000003377892143,
+    4.000003377926561
+   ],
+   "ideal_threshold": 327768.3436904986,
+   "strut_over_threshold": 386.4518008068347,
+   "worst_drop": 8.055376061169854e-13,
+   "passes": true
+  },
+  {
+   "name": "mirror",
+   "cases": [
+    {
+     "shape": "one_wave",
+     "k": 0.0,
+     "plus_n": 229152.91124928335,
+     "minus_n": 229152.91124928335,
+     "rel": 0.0
+    },
+    {
+     "shape": "one_wave",
+     "k": 126666666.6666667,
+     "plus_n": 931743.2879231243,
+     "minus_n": 931743.2879231243,
+     "rel": 0.0
+    },
+    {
+     "shape": "two_waves",
+     "k": 126666666.6666667,
+     "plus_n": 619332.7919188787,
+     "minus_n": 619332.7919188787,
+     "rel": 0.0
+    }
+   ],
+   "worst": 0.0,
+   "passes": true
+  },
+  {
+   "name": "resolution",
+   "mesh": {
+    "20->40": 0.0006138509049270491,
+    "40->80": 0.00015474502873868978
+   },
+   "load_steps": 0.00013710306635839054,
+   "tolerance": 0.0,
+   "u": 0.00015474502873868978,
+   "passes": true
+  },
+  {
+   "name": "brace",
+   "worst_utilisation": 0.01943754192479806,
+   "passes": true
+  },
+  {
+   "name": "ship",
+   "line": 2.0004642350862163,
+   "min_ratio": 2.325871496483119,
+   "worst_cell": {
+    "imperfection": 0.002,
+    "brace_factor": 0.5,
+    "height": 0.55,
+    "by_shape": {
+     "one_wave": 3.650588831942014,
+     "two_waves": 2.325871496483119
+    },
+    "worse_shape": "two_waves",
+    "ratio": 2.325871496483119
+   },
+   "nominal_one_wave": 4.066032950851451,
+   "nominal_worse_shape": 2.7027053182193232,
+   "bare_n": 229152.91124928335,
+   "braced_n": 931743.2879231243,
+   "cells": [
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 0.5,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.719502427631271,
+      "two_waves": 2.938531000526594
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.938531000526594
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 0.5,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.066516617555893,
+      "two_waves": 2.9942512787938456
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.9942512787938456
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 0.5,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.719502427633076,
+      "two_waves": 2.93853100052465
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.93853100052465
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 1.0,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.7201757705349996,
+      "two_waves": 2.9386151954498265
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.9386151954498265
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 1.0,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.0665018728252855,
+      "two_waves": 2.994251278793367
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.994251278793367
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 1.0,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.720175770532195,
+      "two_waves": 2.9386151954454247
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.9386151954454247
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 2.0,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.7205122041546557,
+      "two_waves": 2.9386572035129803
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.9386572035129803
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 2.0,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.0664945263670065,
+      "two_waves": 2.9942512787957907
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.9942512787957907
+    },
+    {
+     "imperfection": 0.0005,
+     "brace_factor": 2.0,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.720512204158035,
+      "two_waves": 2.938657203509865
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.938657203509865
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 0.5,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.671678628269265,
+      "two_waves": 2.6458770202088195
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.6458770202088195
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 0.5,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.0661051590842385,
+      "two_waves": 2.7027053182221574
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.7027053182221574
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 0.5,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.6716786282689813,
+      "two_waves": 2.645877020205554
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.645877020205554
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 1.0,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.672624379983636,
+      "two_waves": 2.645944808568481
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.645944808568481
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 1.0,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.066032950851451,
+      "two_waves": 2.7027053182193232
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.7027053182193232
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 1.0,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.6726243799904243,
+      "two_waves": 2.645944808569932
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.645944808569932
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 2.0,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.6730969622039904,
+      "two_waves": 2.6459786458927663
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.6459786458927663
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 2.0,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.065996960574383,
+      "two_waves": 2.7027053182190706
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.7027053182190706
+    },
+    {
+     "imperfection": 0.001,
+     "brace_factor": 2.0,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.673096962208687,
+      "two_waves": 2.645978645894017
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.645978645894017
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 0.5,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.650588831942636,
+      "two_waves": 2.3258714964847877
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.3258714964847877
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 0.5,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.072353649794108,
+      "two_waves": 2.382885136148732
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.382885136148732
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 0.5,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.650588831942014,
+      "two_waves": 2.325871496483119
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.325871496483119
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 1.0,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.6519413428912717,
+      "two_waves": 2.32591880745396
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.32591880745396
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 1.0,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.072090726295024,
+      "two_waves": 2.3828851361497314
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.3828851361497314
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 1.0,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.651941342896457,
+      "two_waves": 2.325918807455355
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.325918807455355
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 2.0,
+     "height": 0.45,
+     "by_shape": {
+      "one_wave": 3.652616516887445,
+      "two_waves": 2.3259424354605107
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.3259424354605107
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 2.0,
+     "height": 0.5,
+     "by_shape": {
+      "one_wave": 4.071959611915186,
+      "two_waves": 2.382885136153707
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.382885136153707
+    },
+    {
+     "imperfection": 0.002,
+     "brace_factor": 2.0,
+     "height": 0.55,
+     "by_shape": {
+      "one_wave": 3.652616516893832,
+      "two_waves": 2.3259424354594525
+     },
+     "worse_shape": "two_waves",
+     "ratio": 2.3259424354594525
+    }
+   ],
+   "passes": true
+  },
+  {
+   "name": "wording",
+   "hits": [],
+   "passes": true
+  }
+ ],
+ "passed": 11,
+ "total": 11
+}

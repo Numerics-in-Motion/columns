@@ -1,0 +1,14 @@
+{
+  "source": "assets/generated/column/worker_raw.jpg",
+  "png": "assets/generated/column/worker.png",
+  "what": "Illustration only. A scale figure beside the column; nothing about the column comes from it.",
+  "height_m": 1.7,
+  "helmet_top_px": 101,
+  "sole_px": 1106,
+  "height_px": 1005,
+  "width_px": 357,
+  "boots_px": [
+    308,
+    588
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "study": "one mid-height bracing level on a 12 m pinned steel column",
+  "claim": "In this principal-plane model of a 12 m square steel tube, the bare one-wave reference first yielded at 229 kN; with one mid-height lateral brace, the less favourable of two braced crookedness shapes first yielded at 619 kN. Every registered crookedness-size, shape, and brace-height case remained above twice its corresponding one-wave bare reference.",
+  "on_screen": {
+    "setup": "12 m STEEL COLUMN, PINNED AT BOTH ENDS — PRINCIPAL-PLANE MODEL",
+    "measure": "THE NUMBER: THE LOAD WHEN THE STEEL FIRST YIELDS",
+    "brace": "ONE MID-HEIGHT BRACE IN THE SHOWN PLANE: A 3 m STEEL STRUT",
+    "why": "A MID-HEIGHT RESTRAINT SPLITS THE ELASTIC BUCKLING WAVE INTO TWO 6 m HALVES",
+    "result": "MORE THAN DOUBLE ACROSS EVERY CROOKEDNESS SIZE, SHAPE, AND BRACE HEIGHT TRIED",
+    "braced_note": "LESS FAVOURABLE OF TWO BRACED CROOKEDNESS SHAPES",
+    "why_note": "SCHEMATIC ELASTIC BUCKLING SHAPES — AMPLITUDE NOT TO SCALE",
+    "limits": [
+      "FIRST YIELD ONLY: POST-YIELD RESPONSE NOT COMPUTED",
+      "PLANAR, STRAIGHT PUSH: OUT-OF-PLANE BEHAVIOUR NOT COMPUTED",
+      "NO WALL BUCKLING OR RESIDUAL STRESS",
+      "STRUT CONNECTION ASSUMED NO-SLIP; NEIGHBOUR RIGID"
+    ],
+    "heads": {
+      "brace": "at mid-height, in the shown plane",
+      "braced": "same section and length; less favourable braced shape",
+      "braced_short": "less favourable braced shape",
+      "why": "elastic buckling shapes",
+      "result": "bare reference / less favourable braced shape"
+    }
+  },
+  "identity": [
+    "WORKER DRAWN TO SCALE, 1.70 m - AN ILLUSTRATION"
+  ],
+  "what_is_not_claimed": "First yield of the extreme fibre only: not a collapse load, not an ultimate or code design value; the post-yield response was not computed. The result applies to one principal bending plane. No out-of-plane response or biaxial stress interaction was computed. A real column would require adequate restraint in the other direction; this study does not quantify that system. No local buckling of the tube wall, residual stress or twisting. The strut connection is assumed no-slip and its neighbour rigid. The bare reference and the braced column do not carry the same crookedness: a single half-wave, and the less favourable of two braced shapes. The tested strut is about 390 times the closed-form ideal-brace threshold for this elastic model. Therefore 0.5x-2x is a saturated stiff-brace control band, not a stiffness-sensitivity study; much softer braces were not computed.",
+  "verification_not_validation": "The tangent identities (pi^2 EI/L^2 bare, 4 pi^2 EI/L^2 with the middle held), equilibrium and reaction closure at every first yield, the spring's isolation and energy, the mirror, and the mesh, load-step and tolerance refinement are checks of the solve against itself and against theory for a perfect column. No test of a real braced column is reproduced here.",
+  "frozen": {
+    "length_m": 12.0,
+    "area_m2": 0.004,
+    "outer_m": 0.17,
+    "imperfections": [
+      0.0005,
+      0.001,
+      0.002
+    ],
+    "shapes": [
+      "one_wave",
+      "two_waves"
+    ],
+    "brace_factors": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "brace_heights": [
+      0.45,
+      0.5,
+      0.55
+    ],
+    "meshes": [
+      20,
+      40,
+      80
+    ],
+    "nominal_mesh": 40,
+    "load_steps": 600,
+    "load_max_factor": 4.5,
+    "strut": {
+      "area": 0.0019000000000000006,
+      "inertia": 2.8658333333333323e-06,
+      "length": 3.0
+    }
+  },
+  "bare_first_yield_n": 229152.91124928335,
+  "braced_first_yield_one_wave_n": 931743.2879231243,
+  "ratio_one_wave": 4.066032950851451,
+  "ratio_worse_shape": 2.7027053182193232,
+  "braced_first_yield_worse_shape_n": 619332.7919188787,
+  "min_ratio": 2.325871496483119,
+  "worst_cell": {
+    "imperfection": 0.002,
+    "brace_factor": 0.5,
+    "height": 0.55,
+    "worse_shape": "two_waves",
+    "ratio": 2.325871496483119
+  },
+  "ship_line": 2.0004642350862163,
+  "u": 0.00015474502873868978,
+  "brace_utilisation": 0.01943754192479806,
+  "identity_worst": 1.3463153841097864e-05,
+  "mesh_changes": {
+    "20->40": 0.0006138509049270491,
+    "40->80": 0.00015474502873868978
+  },
+  "load_step_change": 0.00013710306635839054,
+  "tolerance_change": 0.0,
+  "yield_counts": {
+    "cases": 199,
+    "eligible": 190,
+    "reached": 190,
+    "controls": 9,
+    "control_modes": [
+      "instability"
+    ]
+  },
+  "equilibrium_worst_over_bound": 4.09120433315649e-07,
+  "mirror_worst": 0.0,
+  "ideal_brace_threshold_n_per_m": 327768.3436904986,
+  "strut_over_threshold": 386.4518008068347,
+  "buckling_over_euler_by_k": {
+    "0": 1.0000000528321404,
+    "81942.1": 1.798972418584863,
+    "163884": 2.5706520103863246,
+    "327768": 4.000001125958429,
+    "655537": 4.000003377893168,
+    "1.31107e+06": 4.000003377894106,
+    "6.33333e+07": 4.0000033778908834,
+    "1.26667e+08": 4.000003377894351,
+    "2.53333e+08": 4.000003377892143,
+    "1.26667e+11": 4.000003377926561
+  },
+  "gates": {
+    "identity": true,
+    "yield": true,
+    "bracket": true,
+    "equilibrium": true,
+    "spring": true,
+    "monotone": true,
+    "mirror": true,
+    "resolution": true,
+    "brace": true,
+    "ship": true,
+    "wording": true
+  },
+  "source_sha256": {
+    "column_brace": "d5d8a00fd90192ecc3598f120a7e10bc06a5783868057765fd734a14c34a8472",
+    "column_brace_gates": "3a621738557d6fa2831a1eefefa496f7199928c00b11092e4a811dc419504a42",
+    "column_fem": "b81ee523443e66bae91a326e2a1f8dc24fa5530904705079fe5d060706100913",
+    "column_geometry": "97fa6ab76a2be3f4d8d37e6d79467d64edb4f7fbeaa6bbc764f1be93f4d912f1",
+    "inverse_design": "0a0aa9438f5ec38c9d1dafab584cc883b81eb2d41474eb5faf38996765012b99",
+    "fem": "613651d8f2f556a2a283635d46c20ba163b01802ed47e963e411649b36907b1f",
+    "geometry": "87604ae6dbec85a4333bef6581e1139f99ac26c461dd5bb53701bc3b04ddb329",
+    "failure": "4dc4699978563971d3f86a5e1456d32ad65cfe0a3629c1532cedbf535101fbae",
+    "materials": "0401fac363201a0237b2329c6ba5f55cdc5cf190ad20b9030acb34dad5c74730",
+    "section_properties": "0aee661f81f382f72bd329db3e7bf0a1f3ffe31b3ed3d0d8071610f5748fb7e2",
+    "utils": "6be98a3583e51f143939bbe988316e818f6392209ea0f4c0efa75522e6c77f4a"
+  },
+  "config_sha256": "ab5d231740f5287da32757c198704fe37880e31fa9888232ef2926afd70c5435",
+  "published_solver_origin": "column_fem, column_geometry, inverse_design, fem, geometry, failure and materials are byte-identical to the solver folder of the public three-thresholds package, and config/column_config.json to its config.json"
+}
