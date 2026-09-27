@@ -1,0 +1,46 @@
+# column-brace study — four equal-area columns, one identical lateral brace (v3)
+
+This is the executable preregistration, frozen before any braced result, after independent MAJOR REVISION on v1 and v2. Earlier versions and their verdicts remain on disk. A revised existence gate must pass before screening/production. The question is whether one identical lateral brace gives the four equal-area original published sections materially different **relative first-yield improvements** at 3 m. This is neither the bare-shape ranking, the earlier single 12 m braced box, nor the later two-shape comparison. Source is self/editorial; no unserved commenter demand is claimed.
+
+## Fixed physical model
+
+Four original `column_geometry.build_all_columns` shapes and dimensions from `config/column_config.json`, each A=0.004000 m², L=3.000 m, E=200 GPa, Fy=250 MPa, pinned ends. Use the original corrected weak-axis fibre pairing. The one mid-height, in-plane spring is the published 3 m 100×100×5 mm SHS strut to an immovable neighbor: k0=EA/L=126.667 MN/m. Its material volume is 0.0057 m³ against 0.0120 m³ in **each** column: adding it increases steel by 47.5%. It is not free, and connection/anchor steel is excluded. Spring zero displacement is the initial bowed coordinate, with no hidden preload. Nominal crookedness is L/1000, both one and two half-waves. No out-of-plane restraint, local wall buckling, residual stress, connection slip or post-yield response is computed. A two-wave midspan node's small brace reaction is not proof that the brace has no stability effect.
+
+## Parent reproduction and new solver measurement are separate
+
+First reproduce the published **first-crossing** loads using canonical 12 elements / 400 steps / 1.5× each bare Euler load and the public reference, including I-section 356,399.44 N. This identity check has a relative 0.1% threshold and is not a denominator in a new ratio. A diagnostic may reproduce the original exact path using the published code/source hash. Do not use `midspan_deflection_history` as the lateral shape; it has a documented naming defect. Use nodal displacements to draw the column.
+
+New comparison: call published `column_fem.run_nonlinear_column` unchanged, with only the previously verified `column_brace.lateral_spring` wrapper. For each section, set the same fixed maximum applied load **Pmax=1.20 MN**, expressed to the API as `load_max_factor=Pmax/P_E(section)`. This exceeds every section's common 1.00 MN axial squash ceiling, and avoids wasting an unbounded rung on box Euler load. Use 80 elements, 2400 load steps, Newton tol 1e-8 for reported loads; 40 elements, 1200 steps, and tol 1e-7/1e-9 as refinement controls. Every comparison value comes from the published *interpolated* `inverse_design.first_yield_load`, but only if `failure_mode=='yield'`, the combined stress crosses Fy on adjacent rungs, and interpolated P lies in that bracket. `first_yield_load`'s last-rung fallback is never accepted as an event. If the solver labels a Newton/conditioning exit `instability`, record it conservatively as **unresolved numerical/physical non-yield** until the eigenvalue/mesh controls distinguish the cause; it is not a first-yield numerator, nor automatically a physical instability. Reaching Pmax without a yield crossing is a separate unresolved ceiling outcome, never a load claim.
+
+At nominal L/1000, y/L=0.50, k=k0, section i:
+
+* `P0_i1`: remeasured one-wave bare *interpolated* first yield, not the raw historical first-crossing number.
+* `Pb_i1` / `Pb_i2`: braced one-wave / two-wave first yield.
+* **Primary causal benefit** `R_i=Pb_i1/P0_i1` compares the same crooked column before and after the brace.
+* **Adverse-shape robustness benchmark** `Rw_i=min(Pb_i1,Pb_i2)/P0_i1` is conservative against the same one-wave bare reference but does **not** itself isolate an intervention on unchanged shape. The winning and lagging identities of `R` must persist in `Rw` to use them in the headline.
+* Run bare two-wave controls too. Report any case without first yield separately; never supply a numeric denominator for a non-event.
+
+The **exact sensitivity grid** is four sections × imperfection amplitude {L/2000,L/1000,L/500} × brace height {0.45L,0.50L,0.55L} × stiffness {0.5k0,k0,2k0} × braced shape {one-wave,two-wave}. Each height must coincide with a mesh node. Each amplitude has a matching bare one-wave denominator for each section. Every cell must have both shapes for all four sections, and four matching valid bare denominators, before any four-way R/Rw ranking is defined. A missing/ambiguous first-yield event is recorded without replacing the condition. The stiffness band is explicitly a **stiff-restraint control band**: the ideal-brace threshold is `16*P_E/L`, and even 0.5k0 exceeds it for all four. No claim about optimal/economical brace sizing.
+
+## Deterministic numerical intervals and kill line
+
+For each estimated first-yield load P (80 elements, 2400 steps, tol 1e-8), define its observed numerical envelope `e_P` as the **sum** of: the relative 40→80 mesh difference, the relative 1200→2400 step difference, the largest relative tol1e-7/1e-9 difference, and **one production load-rung width / P**. The rung is 0.5 kN on all four because Pmax and steps are common. This is an operational conservative envelope, not a certified error bound or statistical sigma; disclose that model-form uncertainty is separate. If it is unexpectedly large, stop rather than drop a term.
+
+For every matched ratio estimate `R=Pb/P0`, with per-load errors `e_N,e_D`, use exact interval arithmetic:
+
+```
+R_low  = R * (1-e_N)/(1+e_D)
+R_high = R * (1+e_N)/(1-e_D)
+```
+
+Require `e_N,e_D <1`. For Rw, first compute both braced-load intervals and take the **minimum of their lower endpoints** and **minimum of their upper endpoints**, then divide by the bare-load interval. This preserves possible switches in which braced shape governs. Define nominal `u` as the largest `max(1-R_low/R, R_high/R-1)` over all four R and Rw values, and require u<=0.03. Each claimed benefit requires `R_low>1`; point estimate `R>1+u` alone does not count.
+
+The candidate ships **only if**: all eight nominal braced shapes and four bare one-wave denominators yield and bracket; historical parent identity passes; all four nominal `R_low>1`; the largest-to-smallest nominal matched benefit estimate `C=max(R)/min(R)` has a conservative contrast lower endpoint `C_low=R_leader_low/R_lagger_high >=1.50`; the leader's ratio interval lies above every other contender's upper endpoint and the lagger's lies below every other contender's lower endpoint; those two identities are likewise resolved in Rw and every complete registered sensitivity condition; nominal u<=3%; strut utilization at first yield <80% of the strut's smaller modeled squash/Euler limit; and numerical, spring and equilibrium gates pass. If intermediate sections overlap by the tie rule, do not assign them an ordinal.
+
+Tie rule throughout: two ratios are unresolved if their exact intervals overlap **or** their point estimates differ by no more than 3% of the smaller point estimate. Positive separation requires non-overlapping intervals and >3% of the smaller point estimate. For the mandatory extreme identity checks in each sensitivity, compute **condition-specific** intervals by the same error recipe, not nominal u copied across conditions. If a registered condition lacks a complete yield set, disclose it and do not claim robustness or ship this comparison. No selecting a more favorable length/brace/imperfection after failure. The 1.50 criterion is a pragmatic content gate, not a statistical confidence or engineering safety margin.
+
+## Independent checks and delivery boundary
+
+Besides parent identity, test equal area and mass, identical spring and steel addition, exact zero-spring equivalence, bare/ideal spring tangent eigenvalues against P_E and 4P_E, stiffness matrix single-entry change and 1/2ku² energy, wrapper restoration, Newton equilibrium including brace force and support reactions, true load/stress first-yield brackets, mirrored crookedness, load-step/mesh/tolerance changes, independent strut force/utilization, and a square-box diagonal fibre control. The diagonal control scopes the claim; no two-way result may be asserted from a one-plane solve.
+
+If and only if the study ships: two separate 9:16 cuts (55–62 s English narration with burned subtitles for FB/IG; 36 s music-only YouTube), first 5 s physical columns and visible brace action, computed nodal fields driving all motion, measured and disclosed displacement enlargement, generated imagery only as cropped `ILLUSTRATION` of a physical brace (never field evidence), no personal attribution or code/process subject. Report first yield, not ultimate capacity, collapse, safe design or real connection strength. Two thumbnails, a standalone public reproduction package, SNS copy with no AI tag, full decoded visual/audio tests, and preflight are mandatory before completion. Slate music gamelan / b_minor_turn nominal 110 conflicts with 047's 110 and current rolling tempo rule; the playable 96–116 range leaves 104 BPM as the highest compliant choice, to be checked again at final preflight.

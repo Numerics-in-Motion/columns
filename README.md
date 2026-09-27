@@ -32,6 +32,7 @@ alone, so each study states the meshes it used and why.
 | folder | question |
 |---|---|
 | [`one-braced-level/`](one-braced-level/) | A 12 m steel column is pushed until it first yields. Hold its middle with one steel strut: how much more load does it take? |
+| [`which-column-gains-most-from-one-brace/`](which-column-gains-most-from-one-brace/) | Four equal-area 3 m columns get the same brace. The rod gains the most *relative* first-yield load; the original four-way extreme-rank gate failed and remains public. |
 
 Each study folder carries a `reproduce.py` that checks every module against a
 SHA-256 frozen with its reference, re-runs the study, and fails if the answer
