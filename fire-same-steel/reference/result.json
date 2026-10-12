@@ -1,0 +1,95 @@
+{
+ "edition": "EN 1993-1-2:2005",
+ "gamma_M_fi": 1.0,
+ "nominal": {
+  "A": {
+   "solid_circle": 1203.1677539101004,
+   "hollow_tube": 1557.7052648331724,
+   "box": 1508.1948199667422,
+   "i_section": 865.4442009523494
+  },
+  "B": {
+   "solid_circle": 1203.1677539101004,
+   "hollow_tube": 785.3126595558779,
+   "box": 697.2103462975635,
+   "i_section": 774.2098727147089
+  }
+ },
+ "loads_N": {
+  "A": {
+   "solid_circle": 98681.91362019276,
+   "hollow_tube": 98681.91362019276,
+   "box": 98681.91362019276,
+   "i_section": 98681.91362019276
+  },
+  "B": {
+   "solid_circle": 98681.91362019276,
+   "hollow_tube": 337045.95217709744,
+   "box": 359981.3488366221,
+   "i_section": 134823.74527183245
+  }
+ },
+ "claims": {
+  "A_rod_outlasts_I": {
+   "min_gap": 0.24250959246437853,
+   "max_bar": 0.1,
+   "holds": true
+  },
+  "B_rod_outlasts_all": {
+   "min_gap": 0.4213245273198627,
+   "max_bar": 0.1,
+   "holds": true
+  }
+ },
+ "cold_EN_N": {
+  "solid_circle": 197363.82724038552,
+  "hollow_tube": 674091.9043541949,
+  "box": 719962.6976732442,
+  "i_section": 269647.4905436649
+ },
+ "parent_cold_N": {
+  "solid_circle": 249233.01718479025,
+  "hollow_tube": 899508.4397878932,
+  "box": 943972.829828636,
+  "i_section": 356399.43820129655
+ },
+ "validation": {
+  "closed_form_rel_err_dt2": 0.00032811398257863206,
+  "stocky_vs_eq422": {
+   "0.3": {
+    "model": 670.8318327549738,
+    "eq422": 663.7766920312087,
+    "rel": 0.01062878647060633
+   },
+   "0.5": {
+    "model": 590.3210972271777,
+    "eq422": 584.6652558771838,
+    "rel": 0.009673640246517403
+   },
+   "0.7": {
+    "model": 525.8049668995444,
+    "eq422": 525.7836320068411,
+    "rel": 4.0577323835399124e-05
+   }
+  },
+  "radial_rod_at_ruleB_failure": {
+   "t_s": 1203.2783358952267,
+   "lumped": 544.0211331859516,
+   "radial_mean": 540.4432560447798,
+   "centre": 531.4152226327589,
+   "surface": 548.6757257278173,
+   "rel": 0.0068746728862675065
+  },
+  "wrong_AmV_flips_ruleB_winner": true,
+  "classes": {
+   "solid_circle": 1,
+   "hollow_tube": 1,
+   "box": 1,
+   "i_section": 1
+  }
+ },
+ "source_sha256": {
+  "solver/fire_columns064.py": "7f13908ae33cec81c1a8271bc5bc4d11186cf674353a89c71908a5023ad57a74",
+  "reproduce.py": "4e78cf542c102e9e7d2d6b66a8e57370195941e59c45173cfcf4a7f5f460a2dd"
+ }
+}
