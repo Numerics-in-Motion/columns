@@ -32,6 +32,7 @@ alone, so each study states the meshes it used and why.
 | folder | question |
 |---|---|
 | [`one-braced-level/`](one-braced-level/) | A 12 m steel column is pushed until it first yields. Hold its middle with one steel strut: how much more load does it take? |
+| [`spend-the-strut-steel/`](spend-the-strut-steel/) | The same 12 m column and the strut's own 44.7 kg of steel, spent three ways: one strut to a rigid anchor, a wider tube, or a thicker wall. Which carries the most load to first yield? |
 | [`which-column-gains-most-from-one-brace/`](which-column-gains-most-from-one-brace/) | Four equal-area 3 m columns get the same brace. The rod gains the most *relative* first-yield load; the original four-way extreme-rank gate failed and remains public. |
 
 Each study folder carries a `reproduce.py` that checks every module against a

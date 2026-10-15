@@ -1,0 +1,54 @@
+{
+ "first_yield_n": {
+  "bare": 229152.9112490483,
+  "strut": 619332.7919194434,
+  "wider": 316543.0291526852,
+  "thicker": 254143.70884894504
+ },
+ "u": {
+  "strut": 0.1703508440729346,
+  "wider": 0.056579164248542486,
+  "thicker": 0.04847091236521453
+ },
+ "gaps": [
+  {
+   "pair": [
+    "strut",
+    "wider"
+   ],
+   "gap": 0.9565516687486646,
+   "threshold": 0.5110525322188038,
+   "passes": true
+  },
+  {
+   "pair": [
+    "wider",
+    "thicker"
+   ],
+   "gap": 0.24552770000231772,
+   "threshold": 0.16973749274562747,
+   "passes": true
+  }
+ ],
+ "claims": {
+  "order_strut_wider_thicker": true,
+  "gaps_exceed_max_10pct_3u": true
+ },
+ "validation_pass": true,
+ "order": [
+  "strut",
+  "wider",
+  "thicker"
+ ],
+ "source_sha256": {
+  "solver/strut_vs_section.py": "e48609e7b556562c5fceb39dd977dcc9b1fae288a47eb7260802e344373b34db",
+  "solver/column_brace.py": "d5d8a00fd90192ecc3598f120a7e10bc06a5783868057765fd734a14c34a8472",
+  "config/column_config.json": "ab5d231740f5287da32757c198704fe37880e31fa9888232ef2926afd70c5435",
+  "reproduce.py": "86a8ce7088193aefac4544bdad4fb54d2b1588abedcea1a2a1aa7e89153303e6",
+  "../column_fem.py": "b81ee523443e66bae91a326e2a1f8dc24fa5530904705079fe5d060706100913",
+  "../column_geometry.py": "97fa6ab76a2be3f4d8d37e6d79467d64edb4f7fbeaa6bbc764f1be93f4d912f1",
+  "../section_properties.py": "0aee661f81f382f72bd329db3e7bf0a1f3ffe31b3ed3d0d8071610f5748fb7e2",
+  "../inverse_design.py": "0a0aa9438f5ec38c9d1dafab584cc883b81eb2d41474eb5faf38996765012b99",
+  "../materials.py": "0401fac363201a0237b2329c6ba5f55cdc5cf190ad20b9030acb34dad5c74730"
+ }
+}

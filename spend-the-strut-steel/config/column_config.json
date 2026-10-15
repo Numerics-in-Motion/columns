@@ -1,0 +1,55 @@
+{
+  "video": {
+    "width_9x16": 1080,
+    "height_9x16": 1920,
+    "width_16x9": 1920,
+    "height_16x9": 1080,
+    "fps": 30,
+    "output_filename_9x16": "column_buckling_battle_9x16.mp4",
+    "output_filename_16x9": "column_buckling_battle_16x9.mp4"
+  },
+  "geometry": {
+    "length_m": 3.0,
+    "target_area_m2": 0.004,
+    "envelope_width_m": 0.20,
+    "envelope_height_m": 0.20,
+    "n_elements": 12,
+    "imperfection_ratio": 0.001,
+    "tube_diameter_ratio": 0.85,
+    "box_width_ratio": 0.85,
+    "i_section_height_ratio": 0.9,
+    "i_section_flange_width_ratio": 0.5,
+    "i_section_tf_tw_ratio": 2.0
+  },
+  "material": {
+    "name": "steel",
+    "youngs_modulus_pa": 200000000000.0,
+    "poisson_ratio": 0.3,
+    "density_kg_m3": 7850.0,
+    "failure_stress_pa": 250000000.0
+  },
+  "solver": {
+    "end_condition": "pinned_pinned",
+    "effective_length_factor": 1.0,
+    "n_load_steps": 400,
+    "load_max_factor": 1.5,
+    "newton_max_iter": 40,
+    "newton_tol": 1e-8
+  },
+  "sensitivity": {
+    "tube_diameter_ratio_alt": 0.70,
+    "box_width_ratio_alt": 0.70,
+    "i_section_height_ratio_alt": 0.80
+  },
+  "validation": {
+    "mesh_convergence_elements": [6, 12, 24],
+    "load_step_convergence_steps": [100, 400, 1000]
+  },
+  "audio": {
+    "narration_dbfs": -4.0,
+    "sfx_dbfs": -9.0,
+    "bgm_dbfs": -6.0,
+    "limiter_ceiling_dbfs": -1.0
+  },
+  "random_seed": 42
+}
